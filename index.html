@@ -178,6 +178,7 @@ section{padding:120px 0;position:relative}
 .col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 .col li{font-size:16px;color:var(--soft);line-height:1.35}
 .col li small{display:block;color:var(--muted);font-size:13px}
+.col p{margin:0;color:var(--soft);font-size:16px;line-height:1.5}
 @media (max-width:1000px){.rep{grid-template-columns:repeat(3,1fr)}.col:nth-child(3){border-right:0}.col:nth-child(4){padding-left:0}}
 @media (max-width:640px){.rep{grid-template-columns:1fr 1fr}.col{border-right:0!important;padding-left:0!important;padding-right:16px!important}}
 .note{margin-top:34px;color:var(--muted);font-size:15px}
@@ -218,6 +219,8 @@ footer{background:#000;border-top:1px solid var(--line);padding:46px 0 calc(40px
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 footer .fl{display:flex;gap:22px;flex-wrap:wrap}
 footer a{text-decoration:none;color:var(--soft)}footer a:hover{color:var(--ink)}
+footer .fl{align-items:center}
+.soc-ic{display:inline-flex;align-items:center;transition:transform .2s,opacity .2s;opacity:.92}.soc-ic:hover{transform:scale(1.08);opacity:1}
 .flame{height:2px;background:var(--flame)}
 
 /* reveal */
@@ -303,7 +306,7 @@ footer a{text-decoration:none;color:var(--soft)}footer a:hover{color:var(--ink)}
     <div class="shows rv">
       <article class="show">
         <div class="d"><b>05</b><span>Dec 2026</span></div>
-        <div><h3>Tawrongo Live</h3><p>Saturday, 5 December 2026 · Orlando area · Venue and time to be announced</p></div>
+        <div><h3>Gala Event · Tawrongo Live</h3><p>Saturday, 5 December 2026 · Jacksonville, Florida · Venue and time to be announced</p></div>
         <span class="chip live">Next show</span>
       </article>
       <article class="show past">
@@ -335,14 +338,14 @@ footer a{text-decoration:none;color:var(--soft)}footer a:hover{color:var(--ink)}
   <div class="wrap">
     <div class="head rv">
       <div><span class="kicker">Repertoire</span><h2>What <i>we play</i></h2></div>
-      <p>A selection from our current set. Requests for your event are welcome.</p>
+      <p>Five styles, one band. Song requests for your event are welcome.</p>
     </div>
     <div class="rep rv">
-      <div class="col"><h3>Bengali</h3><ul><li>Bela Bose</li><li>Barandaye Roddur</li><li>Benche Thakar Gaan</li><li>Jodi Tor Dak Shune<small>Rabindrasangeet</small></li><li>Dugga Elo</li><li>Sohag Chand Bodoni</li><li>Bangla medley</li></ul></div>
-      <div class="col"><h3>Bollywood</h3><ul><li>Main Koi Aisa Geet Gaoon</li><li>Socha Hai</li><li>Kisi Ki Muskurahaton Pe</li><li>Ajeeb Dastan Hai Yeh</li><li>Badi Mushkil Hai</li><li>Bade Achhe Lagte Hain</li><li>Dil Se Re</li><li>Dum Maro Dum</li><li>Jumma Chumma De De</li><li>Achha Chalta Hoon</li></ul></div>
-      <div class="col"><h3>Sufi &amp; devotional</h3><ul><li>Laal Meri<small>Dama Dam Mast Qalandar</small></li><li>Vakratunda</li><li>Aigiri Nandini</li><li>Shiva Tandava Stotram</li><li>Vande Mataram</li></ul></div>
-      <div class="col"><h3>South Indian &amp; Marathi</h3><ul><li>Naatu Naatu</li><li>Arabic Kuthu</li><li>Appadi Podu</li><li>Pillaa Raa</li><li>Gulabi Saadi</li><li>Ek Number Tuza Kambar</li></ul></div>
-      <div class="col"><h3>Instrumental &amp; rock</h3><ul><li>Satyajit Ray Medley</li><li>Saiyonee<small>Junoon</small></li><li>Gehra Hua</li><li>Wonderful Tonight</li><li>Hawa Hawa</li></ul></div>
+      <div class="col"><h3>Bengali</h3><p>Modern Bengali songs, Rabindrasangeet, folk and Pujo favourites.</p></div>
+      <div class="col"><h3>Bollywood</h3><p>Classics from the 70s to today: romantic numbers, singalongs and dance hits.</p></div>
+      <div class="col"><h3>Sufi &amp; devotional</h3><p>Sufi anthems, bhajans and devotional openers.</p></div>
+      <div class="col"><h3>South Indian &amp; Marathi</h3><p>Tamil, Telugu and Marathi chartbusters that fill the dance floor.</p></div>
+      <div class="col"><h3>Instrumental &amp; rock</h3><p>Instrumental medleys, guitar-led pieces and rock classics.</p></div>
     </div>
   </div>
 </section>
@@ -445,7 +448,11 @@ VIDEOS.forEach((v,i)=>{const it=document.createElement('div');it.className='vite
 const r=document.getElementById('roster');
 MEMBERS.forEach(([n,ro])=>r.insertAdjacentHTML('beforeend',`<li><b>${n}</b><span>${ro}</span></li>`));
 const soc=document.getElementById('social');
-[['youtube','YouTube'],['instagram','Instagram'],['facebook','Facebook']].forEach(([k,l])=>{ if(LINKS[k]) soc.insertAdjacentHTML('afterbegin',`<a href="${LINKS[k]}" target="_blank" rel="noopener">${l}</a>`); });
+const ICON={
+  youtube:'<svg viewBox="0 0 28 20" width="34" height="24" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#FF0000"/><path d="M11 5.5v9l8-4.5z" fill="#fff"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
+  facebook:'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.9h-2.8V9.3c0-.8.3-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.2-.1-2.2 0-3.6 1.3-3.6 3.7v2.2H8.2V14h2.4v7z"/></svg>'};
+[['facebook','Facebook'],['instagram','Instagram'],['youtube','YouTube']].forEach(([k,l])=>{ if(LINKS[k]) soc.insertAdjacentHTML('afterbegin',`<a class="soc-ic" href="${LINKS[k]}" target="_blank" rel="noopener" aria-label="Tawrongo on ${l}" title="${l}">${ICON[k]}</a>`); });
 document.getElementById('yr').textContent=new Date().getFullYear();
 
 /* nav */
